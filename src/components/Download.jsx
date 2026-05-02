@@ -31,7 +31,7 @@ const Download = () =>
                         </div>
                     </div>
                     <div className="download-image">
-                        <img src="./app_icon.png" alt="Download Aura Safe" />
+                        <img src="/app_icon.png" alt="Download Aura Safe" />
                     </div>
                 </div>
             </div>

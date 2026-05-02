@@ -15,7 +15,7 @@ const Header = () =>
         <header>
             <div className="header-content">
                 <div className="logo">
-                    <img src="./app_icon.png" alt="Aura Safe" />
+                    <img src="/app_icon.png" alt="Aura Safe" />
                     Aura Safe
                 </div>
                 <nav>

@@ -21,7 +21,7 @@ const Hero = () =>
                 </div>
             </div>
             <div className="hero-image">
-                <img src="./app_icon.png" alt="Aura Safe App" />
+                <img src="/app_icon.png" alt="Aura Safe App" />
             </div>
         </section>
     );

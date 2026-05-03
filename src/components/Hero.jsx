@@ -3,7 +3,7 @@ import React from 'react';
 const Hero = () =>
 {
     return (
-        <section className="hero">
+        <section className="hero animate-zoom">
             <div className="hero-content">
                 <h1>
                     Women's <span className="highlight">Safety</span> Companion
@@ -21,7 +21,7 @@ const Hero = () =>
                 </div>
             </div>
             <div className="hero-image">
-                <img src="/app_icon.png" alt="Aura Safe App" />
+                <img src="/app_icon.png" alt="Aura Safe App" className="circular-logo" />
             </div>
         </section>
     );

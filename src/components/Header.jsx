@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () =>
 {
@@ -12,12 +13,12 @@ const Header = () =>
     };
 
     return (
-        <header>
+        <header className="site-header">
             <div className="header-content">
-                <div className="logo">
-                    <img src="/app_icon.png" alt="Aura Safe" />
-                    Aura Safe
-                </div>
+                <Link to="/" className="logo">
+                    <img src="/app_icon.png" alt="Aura Safe" className="circular-logo--small" />
+                    <span className="brand">Aura Safe</span>
+                </Link>
                 <nav>
                     <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}>
                         Features

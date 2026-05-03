@@ -26,14 +26,14 @@ const Features = () =>
     ];
 
     return (
-        <section id="features" className="features">
+        <section id="features" className="features animate-stagger">
             <div className="features-container">
                 <h2 className="section-title">
                     Why Choose <span className="highlight">Aura Safe</span>?
                 </h2>
                 <div className="features-grid">
                     {features.map((feature, index) => (
-                        <div key={index} className="feature-card">
+                        <div key={index} className="feature-card" style={{ '--i': index }}>
                             <div className="feature-icon">{feature.icon}</div>
                             <h3>{feature.title}</h3>
                             <p>{feature.description}</p>

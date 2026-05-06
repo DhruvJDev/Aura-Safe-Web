@@ -47,9 +47,9 @@ const Header = () =>
                     <a href="/" onClick={goToSection('download')}>
                         Download
                     </a>
-                    <a href="/" onClick={goToSection('about')}>
+                    <Link to="/about">
                         About
-                    </a>
+                    </Link>
                 </nav>
             </div>
         </header>

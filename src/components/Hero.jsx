@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import appIcon from '../assets/app_icon.png';
 
 const Hero = () =>
@@ -10,15 +11,13 @@ const Hero = () =>
                     Women's <span className="highlight">Safety</span> Companion
                 </h1>
                 <p>
-                    Aura Safe is a modern, user-friendly women safety app that provides immediate emergency assistance and support. The app combines multiple features to ensure quick response in critical situations and maintains a network of trusted contacts.
+                    Aura Safe is a simple safety app for women that helps with emergency support, trusted contacts, and quick access to help when it matters most.
                 </p>
                 <div className="cta-buttons">
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={() => document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' })}>
                         Get Started Today
                     </button>
-                    <button className="btn btn-secondary">
-                        Learn More
-                    </button>
+                    <Link to="/about" className="btn btn-secondary">Learn More</Link>
                 </div>
             </div>
             <div className="hero-image">

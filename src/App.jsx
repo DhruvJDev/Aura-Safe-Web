@@ -7,6 +7,7 @@ import Features from './components/Features';
 import Download from './components/Download';
 import Stats from './components/Stats';
 import Footer from './components/Footer';
+import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import ContactUs from './pages/ContactUs';
@@ -85,6 +86,7 @@ function AppContent()
                         <Download />
                     </>
                 } />
+                <Route path="/about" element={<About />} />
                 <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/contact" element={<ContactUs />} />

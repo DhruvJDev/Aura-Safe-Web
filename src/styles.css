@@ -406,6 +406,14 @@ nav a:active {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
+}
+
+.page-content .btn,
+.page-content .btn:visited,
+.page-content .btn:hover,
+.page-content .btn:focus {
+    text-decoration: none !important;
 }
 
 .btn-primary {
@@ -417,6 +425,10 @@ nav a:active {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 15px 40px rgba(217, 123, 168, 0.4);
+}
+
+.color-w {
+    color: #ffffff !important;
 }
 
 .btn-secondary {

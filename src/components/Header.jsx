@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import appIcon from '../assets/app_icon.png';
 
 const Header = () =>
 {
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const scrollToSection = (id) =>
     {
         const element = document.getElementById(id);
@@ -11,6 +14,18 @@ const Header = () =>
         {
             element.scrollIntoView({ behavior: 'smooth' });
         }
+    };
+
+    const goToSection = (id) => (e) =>
+    {
+        e.preventDefault();
+        if (location.pathname !== '/')
+        {
+            navigate('/', { state: { scrollTo: id } });
+            return;
+        }
+
+        scrollToSection(id);
     };
 
     const goHome = () =>
@@ -26,13 +41,13 @@ const Header = () =>
                     <span className="brand">Aura Safe</span>
                 </Link>
                 <nav>
-                    <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}>
+                    <a href="/" onClick={goToSection('features')}>
                         Features
                     </a>
-                    <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('download'); }}>
+                    <a href="/" onClick={goToSection('download')}>
                         Download
                     </a>
-                    <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
+                    <a href="/" onClick={goToSection('about')}>
                         About
                     </a>
                 </nav>

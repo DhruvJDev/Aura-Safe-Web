@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import AppPreview from './components/AppPreview';
 import Features from './components/Features';
 import Download from './components/Download';
 import Stats from './components/Stats';
@@ -38,8 +39,23 @@ function AppContent()
 
     useEffect(() =>
     {
+        const scrollTo = location.state?.scrollTo;
+
+        if (location.pathname === '/' && scrollTo)
+        {
+            window.requestAnimationFrame(() =>
+            {
+                const element = document.getElementById(scrollTo);
+                if (element)
+                {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            return;
+        }
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [location.pathname]);
+    }, [location.pathname, location.state]);
 
     useEffect(() =>
     {
@@ -63,6 +79,7 @@ function AppContent()
                 <Route path="/" element={
                     <>
                         <Hero />
+                        <AppPreview />
                         <Features />
                         <Stats />
                         <Download />

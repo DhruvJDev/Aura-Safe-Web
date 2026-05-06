@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import appIcon from '../assets/app_icon.png';
 
 const Header = () =>
 {
@@ -16,7 +17,7 @@ const Header = () =>
         <header className="site-header">
             <div className="header-content">
                 <Link to="/" className="logo">
-                    <img src="/app_icon.png" alt="Aura Safe" className="circular-logo--small" />
+                    <img src={appIcon} alt="Aura Safe" className="circular-logo--small" />
                     <span className="brand">Aura Safe</span>
                 </Link>
                 <nav>

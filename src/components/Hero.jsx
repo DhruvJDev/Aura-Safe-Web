@@ -1,4 +1,5 @@
 import React from 'react';
+import appIcon from '../assets/app_icon.png';
 
 const Hero = () =>
 {
@@ -21,7 +22,7 @@ const Hero = () =>
                 </div>
             </div>
             <div className="hero-image">
-                <img src="/app_icon.png" alt="Aura Safe App" className="circular-logo" />
+                <img src={appIcon} alt="Aura Safe App" className="circular-logo" />
             </div>
         </section>
     );

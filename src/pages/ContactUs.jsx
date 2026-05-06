@@ -29,7 +29,7 @@ const ContactUs = () =>
 
     return (
         <div className="page-container">
-            <section className="page-content">
+            <section className="page-content page-static">
                 <h1>Contact Us</h1>
                 <p>We'd love to hear from you. Please reach out with any questions, feedback, or support requests.</p>
 

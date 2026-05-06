@@ -54,7 +54,7 @@ const Support = () =>
 
     return (
         <div className="page-container">
-            <section className="page-content">
+            <section className="page-content page-static">
                 <h1>Support & Help Center</h1>
                 <p>Find answers to common questions and get the help you need.</p>
 

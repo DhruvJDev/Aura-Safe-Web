@@ -4,7 +4,7 @@ const PrivacyPolicy = () =>
 {
     return (
         <div className="page-container">
-            <section className="page-content">
+            <section className="page-content page-static">
                 <h1>Privacy Policy</h1>
                 <p><strong>Last Updated:</strong> May 2026</p>
 

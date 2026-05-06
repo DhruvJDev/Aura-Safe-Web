@@ -5,6 +5,11 @@ import androidLogo from '../assets/android_logo.png';
 
 const Download = () =>
 {
+    const openStoreLink = (url) =>
+    {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
     return (
         <section id="download" className="download animate-slide">
             <div className="download-container">
@@ -17,7 +22,11 @@ const Download = () =>
                             Get instant access to emergency assistance and safety features on your iOS or Android device. Download now and stay protected with trusted contacts always by your side.
                         </p>
                         <div className="download-buttons">
-                            <button className="download-btn ios">
+                            <button
+                                type="button"
+                                className="download-btn ios"
+                                onClick={() => openStoreLink('https://www.apple.com/app-store/')}
+                            >
                                 <div className="platform-logo">
                                     <img src={appleLogo} alt="Apple logo" />
                                 </div>
@@ -26,7 +35,11 @@ const Download = () =>
                                     <p>for the IOS Devices</p>
                                 </div>
                             </button>
-                            <button className="download-btn android">
+                            <button
+                                type="button"
+                                className="download-btn android"
+                                onClick={() => openStoreLink('https://play.google.com/store/games')}
+                            >
                                 <div className="platform-logo">
                                     <img src={androidLogo} alt="Android logo" />
                                 </div>

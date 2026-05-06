@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -15,6 +15,8 @@ import { useEffect } from 'react';
 
 function AppContent()
 {
+    const location = useLocation();
+
     useEffect(() =>
     {
         const sections = document.querySelectorAll('section');
@@ -32,7 +34,12 @@ function AppContent()
         sections.forEach(s => observer.observe(s));
 
         return () => observer.disconnect();
-    }, []);
+    }, [location.pathname]);
+
+    useEffect(() =>
+    {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [location.pathname]);
 
     useEffect(() =>
     {

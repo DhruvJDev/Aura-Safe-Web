@@ -7,18 +7,18 @@ const previews = [
     {
         image: homePage,
         title: 'Home Screen',
-        description: 'A clean dashboard with quick access to safety tools and emergency action.'
-    },
-    {
-        image: settingPage,
-        title: 'Settings View',
-        description: 'Simple setup screens for trusted contacts, alerts, and app preferences.'
+        description: 'The main dashboard where users can quickly access emergency features, view their safety status, and see recent activity at a glance.'
     },
     {
         image: contactPage,
         title: 'Contact Screen',
-        description: 'Easy contact management so users can stay connected and prepared.'
-    }
+        description: 'Your trusted contacts list with options to add, edit, and manage emergency contacts easily.'
+    },
+    {
+        image: settingPage,
+        title: 'Settings View',
+        description: 'Customize your safety preferences, manage notifications, and configure app settings for a personalized experience.'
+    },
 ];
 
 const AppPreview = () =>
@@ -34,11 +34,14 @@ const AppPreview = () =>
                 </p>
                 <div className="app-preview-grid">
                     {previews.map((item, index) => (
-                        <article key={item.title} className="app-preview-card" style={{ '--i': index }}>
-                            <div className="app-preview-image-wrap">
-                                <img src={item.image} alt={item.title} className="app-preview-image" />
+                        <article key={item.title} className="preview-card" style={{ '--i': index }}>
+                            <div className="phone-frame">
+                                <div className="phone-screen">
+                                    <img src={item.image} alt={item.title} />
+                                </div>
+                                <div className="phone-notch" aria-hidden="true" />
                             </div>
-                            <div className="app-preview-content">
+                            <div className="preview-card-content">
                                 <h3>{item.title}</h3>
                                 <p>{item.description}</p>
                             </div>

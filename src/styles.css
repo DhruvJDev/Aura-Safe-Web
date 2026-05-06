@@ -272,55 +272,96 @@ nav a:active {
     align-items: stretch;
 }
 
-.app-preview-card {
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(217, 123, 168, 0.14);
-    border-radius: 24px;
-    padding: 1rem;
-    box-shadow: 0 18px 40px rgba(217, 123, 168, 0.12);
-    backdrop-filter: blur(10px);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    animation: fadeInUp 0.8s ease-out backwards;
+.preview-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 250, 251, 0.85));
+    border-radius: 22px;
+    padding: 1.1rem;
+    box-shadow: 0 20px 45px rgba(217, 123, 168, 0.12);
+    transition: transform 0.45s cubic-bezier(.2, .9, .3, 1), box-shadow 0.35s ease;
+    animation: fadeInUp 0.9s ease-out backwards;
     animation-delay: calc(var(--i) * 0.12s);
-}
-
-.app-preview-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 50px rgba(217, 123, 168, 0.18);
-    border-color: rgba(217, 123, 168, 0.28);
-}
-
-.app-preview-image-wrap {
-    border-radius: 18px;
-    overflow: hidden;
-    background: white;
-    aspect-ratio: 0.56;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.9rem;
 }
 
-.app-preview-image {
+.preview-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 28px 70px rgba(217, 123, 168, 0.18);
+}
+
+.phone-frame {
+    width: 100%;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #fdf5f7 0%, #fff 100%);
+    padding: 14px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    transform-origin: center;
+    perspective: 1200px;
+}
+
+.phone-screen {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: inset 0 -8px 18px rgba(0, 0, 0, 0.04);
+    background: linear-gradient(180deg, #ffffff 0%, #fff6f8 100%);
+}
+
+.phone-screen img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transform-origin: center center;
+    transition: transform 0.6s cubic-bezier(.2, .9, .3, 1);
 }
 
-.app-preview-content {
-    padding: 1rem 0.3rem 0.2rem;
+.phone-notch {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    opacity: 0.6;
 }
 
-.app-preview-content h3 {
-    font-size: 1.15rem;
+.phone-frame::after {
+    content: '';
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 8%;
+    height: 30%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02));
+    border-radius: 14px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.preview-card:hover .phone-screen img {
+    transform: scale(1.03);
+}
+
+.preview-card-content {
+    padding: 0 0.2rem 0.2rem;
+}
+
+.preview-card-content h3 {
+    font-size: 1.12rem;
     color: #1a1a1a;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
 }
 
-.app-preview-content p {
+.preview-card-content p {
     color: #666;
     line-height: 1.55;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
 }
 
 .hero-content {

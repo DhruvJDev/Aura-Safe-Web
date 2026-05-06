@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import appIcon from '../assets/app_icon.png';
 
@@ -6,6 +6,7 @@ const Header = () =>
 {
     const location = useLocation();
     const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const scrollToSection = (id) =>
     {
@@ -30,7 +31,13 @@ const Header = () =>
 
     const goHome = () =>
     {
+        setMenuOpen(false);
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const closeMenu = () =>
+    {
+        setMenuOpen(false);
     };
 
     return (
@@ -40,14 +47,25 @@ const Header = () =>
                     <img src={appIcon} alt="Aura Safe" className="circular-logo--small" />
                     <span className="brand">Aura Safe</span>
                 </Link>
-                <nav>
-                    <a href="/" onClick={goToSection('features')}>
+                <button
+                    type="button"
+                    className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
+                    aria-label="Toggle navigation menu"
+                    aria-expanded={menuOpen}
+                    onClick={() => setMenuOpen(value => !value)}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
+                <nav className={menuOpen ? 'nav-open' : ''}>
+                    <a href="/" onClick={(e) => { goToSection('features')(e); closeMenu(); }}>
                         Features
                     </a>
-                    <a href="/" onClick={goToSection('download')}>
+                    <a href="/" onClick={(e) => { goToSection('download')(e); closeMenu(); }}>
                         Download
                     </a>
-                    <Link to="/about">
+                    <Link to="/about" onClick={closeMenu}>
                         About
                     </Link>
                 </nav>

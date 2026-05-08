@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -28,8 +28,33 @@ const previews = [
     },
 ];
 
-const AppPreview = () =>
-{
+const AppPreview = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const PreviewCard = ({ item, index }) => (
+        <article className="preview-card" style={{ '--i': index }}>
+            <div className="phone-frame">
+                <div className="phone-screen">
+                    <img src={item.image} alt={item.title} />
+                </div>
+                <div className="phone-notch" aria-hidden="true" />
+            </div>
+            <div className="preview-card-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+            </div>
+        </article>
+    );
+
     return (
         <section id="preview" className="app-preview animate-stagger">
             <div className="app-preview-container">
@@ -39,34 +64,33 @@ const AppPreview = () =>
                 <p className="app-preview-subtitle">
                     These screens show what users experience when they open Aura Safe.
                 </p>
-                <Swiper
-                    className="preview-swiper"
-                    modules={[Autoplay, Navigation, Pagination]}
-                    loop
-                    centeredSlides
-                    autoplay={{ delay: 4500, disableOnInteraction: false }}
-                    slidesPerView={1}
-                    spaceBetween={30}
-                    pagination={{ clickable: true }}
-                    navigation
-                >
-                    {previews.map((item, index) => (
-                        <SwiperSlide key={item.title}>
-                            <article className="preview-card preview-card--swiper" style={{ '--i': index }}>
-                                <div className="phone-frame">
-                                    <div className="phone-screen">
-                                        <img src={item.image} alt={item.title} />
-                                    </div>
-                                    <div className="phone-notch" aria-hidden="true" />
+                {isMobile ? (
+                    <Swiper
+                        className="preview-swiper"
+                        modules={[Autoplay, Navigation, Pagination]}
+                        loop
+                        centeredSlides
+                        autoplay={{ delay: 4500, disableOnInteraction: false }}
+                        slidesPerView={1}
+                        spaceBetween={30}
+                        pagination={{ clickable: true }}
+                        navigation
+                    >
+                        {previews.map((item, index) => (
+                            <SwiperSlide key={item.title}>
+                                <div className="preview-card--swiper">
+                                    <PreviewCard item={item} index={index} />
                                 </div>
-                                <div className="preview-card-content">
-                                    <h3>{item.title}</h3>
-                                    <p>{item.description}</p>
-                                </div>
-                            </article>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                ) : (
+                    <div className="app-preview-grid">
+                        {previews.map((item, index) => (
+                            <PreviewCard key={item.title} item={item} index={index} />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );

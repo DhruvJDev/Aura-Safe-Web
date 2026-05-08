@@ -336,8 +336,10 @@ nav a:active {
 }
 
 .preview-swiper {
+    display: none;
     width: 100%;
     padding: 0 0 3rem;
+}
 }
 
 .preview-swiper .swiper-slide {
@@ -1279,6 +1281,14 @@ footer {
         font-size: 0.95rem;
     }
 
+    .app-preview-grid {
+        display: none;
+    }
+
+    .preview-swiper {
+        display: block;
+    }
+
     .download-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1291,7 +1301,16 @@ footer {
     }
 
     .stats-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+
+    .stat-item p {
+        font-size: 0.9rem;
     }
 
     .feature-card {
